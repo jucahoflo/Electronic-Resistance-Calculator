@@ -10,30 +10,37 @@
 
     <style>
         body {
-            background-color: #0b1c3d;
-        }
+    background-color: #0b1c3d;
+    margin: 0;
+}
 
-        .main-container {
-            background-color: #89eb51;
-            border-radius: 15px;
-        }
+.main-container {
+    background-color: #a0d838;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 650px;
+}
 
-        .resistor-img {
-            max-width: 500px;
-            width: 100%;
-            height: auto;
-        }
+.resistor-img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
 
-        .resultado {
-            font-size: 1.4rem;
-            font-weight: bold;
-        }
+.resultado {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
     </style>
 </head>
 
 <body class="bg-light">
 
-<div class="container-fluid vh-100 d-flex justify-content-center align-items-center">
+<div class="container-fluid min-vh-100 d-flex justify-content-center align-items-center py-3">
+
 
     <div class="main-container p-4 shadow text-center w-100 col-12 col-md-8 col-lg-6">
 
@@ -44,9 +51,8 @@
         </h2>
 
         <div class="mb-4">
-            <img src="resistencia.png" class="img-fluid" style="max-width:400px;">
+           <img src="resistencia.png" class="resistor-img img-fluid" alt="Resistencia">
         </div>
-
         <div class="row g-3 justify-content-center">
 
             <div class="col-md-3">
@@ -142,5 +148,4 @@ function calcular() {
 
 </body>
 </html>
-
 
