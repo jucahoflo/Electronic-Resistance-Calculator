@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Resistencias</title>
 
     <!-- Bootstrap CDN -->
@@ -10,52 +10,99 @@
 
     <style>
         body {
-    background-color: #0b1c3d;
-    margin: 0;
-}
+            background: linear-gradient(135deg, #0b1c3d, #1f3c88);
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            margin: 0;
+        }
 
-.main-container {
-    background-color: #a0d838;
-    border-radius: 15px;
-    width: 100%;
-    max-width: 650px;
-}
+        .main-container {
+            background-color: #ffffff;
+            border-radius: 18px;
+            max-width: 720px;
+            width: 100%;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            animation: fadeIn 0.6s ease-in-out;
+        }
 
-.resistor-img {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
+        h2 {
+            color: #1f3c88;
+            font-weight: 700;
+        }
 
-.resultado {
-    font-size: 1.4rem;
-    font-weight: bold;
-}
+        h2 small {
+            color: #4f6fa3;
+            font-weight: 500;
+        }
 
+        label {
+            font-weight: 600;
+            color: #1f3c88;
+        }
+
+        .resistor-img {
+            width: 100%;
+            max-width: 420px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        select {
+            border-radius: 10px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #1f3c88, #4fc3f7);
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            padding: 10px 30px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+        }
+
+        .resultado {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #0b1c3d;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 
-<body class="bg-light">
+<body>
 
-<div class="container-fluid min-vh-100 d-flex justify-content-center align-items-center py-3">
+<div class="container-fluid min-vh-100 d-flex justify-content-center align-items-center py-4">
 
-
-    <div class="main-container p-4 shadow text-center w-100 col-12 col-md-8 col-lg-6">
+    <div class="main-container p-4 text-center">
 
         <h2 class="mb-4">
             Calculadora de Resistencias
             <br>
-            <small class="fs-6">ING. JUAN CARLOS HOLGUIN F</small>
+            <small>ING. JUAN CARLOS HOLGUÍN F</small>
         </h2>
 
         <div class="mb-4">
-           <img src="resistencia.png" class="resistor-img img-fluid" alt="Resistencia">
+            <img src="resistencia.png" class="resistor-img img-fluid" alt="Resistencia">
         </div>
+
         <div class="row g-3 justify-content-center">
 
-            <div class="col-md-3">
+            <div class="col-12 col-sm-6 col-md-3">
                 <label class="form-label">Primera Banda</label>
                 <select id="b1" class="form-select">
                     <option value="0">Negro</option>
@@ -71,7 +118,7 @@
                 </select>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-12 col-sm-6 col-md-3">
                 <label class="form-label">Segunda Banda</label>
                 <select id="b2" class="form-select">
                     <option value="0">Negro</option>
@@ -87,7 +134,7 @@
                 </select>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-12 col-sm-6 col-md-3">
                 <label class="form-label">Multiplicador</label>
                 <select id="mult" class="form-select">
                     <option value="1">Negro (x1)</option>
@@ -100,7 +147,7 @@
                 </select>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-12 col-sm-6 col-md-3">
                 <label class="form-label">Tolerancia</label>
                 <select id="tol" class="form-select">
                     <option value="1">Café ±1%</option>
@@ -113,24 +160,22 @@
         </div>
 
         <div class="mt-4">
-            <button class="btn btn-primary px-4" onclick="calcular()">Calcular</button>
+            <button onclick="calcular()">Calcular</button>
         </div>
 
-        <div class="mt-4 resultado text-dark" id="resultado"></div>
+        <div class="mt-4 resultado" id="resultado"></div>
 
     </div>
 </div>
 
 <script>
 function calcular() {
-
     let b1 = parseInt(document.getElementById("b1").value);
     let b2 = parseInt(document.getElementById("b2").value);
     let mult = parseFloat(document.getElementById("mult").value);
     let tol = document.getElementById("tol").value;
 
     let valor = ((b1 * 10) + b2) * mult;
-
     let unidad = "Ω";
 
     if (valor >= 1000000) {
@@ -148,4 +193,3 @@ function calcular() {
 
 </body>
 </html>
-
